@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Padel werhos — Second Hand Padel Gear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --green-dark: #2d4a2d;
+    --green: #3d6b3d;
+    --green-light: #5a8f5a;
+    --cream: #e8e4d4;
+    --cream-dark: #c8c4b4;
+    --white: #f5f3ee;
+    --gray: #888;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* ── NAVBAR ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 48px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo svg {
+    height: 32px;
+    width: auto;
+  }
+
+  .nav-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: var(--cream);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: rgba(245,243,238,0.6);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+  }
+
+  .nav-cta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--green-light);
+    color: var(--green-light);
+  }
+
+  .btn-primary {
+    background: var(--green);
+    border: none;
+    color: var(--white);
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+  .btn-primary:hover {
+    background: var(--green-light);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 48px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 70% 50%, rgba(61,107,61,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(45,74,45,0.15) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(61,107,61,0.25);
+    border: 1px solid rgba(90,143,90,0.4);
+    color: var(--green-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green-light);
+    border-radius: 50%;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 8vw, 112px);
+    line-height: 0.92;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.35s forwards;
+  }
+
+  .hero-title .accent {
+    color: var(--green-light);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(245,243,238,0.55);
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 40px;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.65s forwards;
+  }
+
+  .btn-hero {
+    background: var(--green);
+    color: var(--white);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.25s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-hero:hover {
+    background: var(--green-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-hero-outline {
+    background: transparent;
+    color: var(--cream);
+    padding: 13px 28px;
+    border: 1px solid rgba(232,228,212,0.25);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: all 0.25s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-hero-outline:hover {
+    border-color: var(--cream);
+    color: var(--white);
+  }
+
+  .hero-stats {
+    position: absolute;
+    right: 48px;
+    bottom: 60px;
+    display: flex;
+    gap: 40px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.8s forwards;
+  }
+
+  .stat-item {
+    text-align: right;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--cream);
+    line-height: 1;
+    letter-spacing: 1px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 48px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 1s forwards;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* ── MARQUEE ── */
+  .marquee-wrap {
+    overflow: hidden;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(61,107,61,0.08);
+    padding: 14px 0;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    white-space: nowrap;
+    animation: marquee 20s linear infinite;
+  }
+
+  .marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 32px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: rgba(232,228,212,0.4);
+  }
+
+  .marquee-dot {
+    width: 4px; height: 4px;
+    background: var(--green-light);
+    border-radius: 50%;
+  }
+
+  /* ── ABOUT SECTION ── */
+  .section {
+    padding: 100px 48px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--green-light);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text {
+    font-size: 15px;
+    color: rgba(245,243,238,0.55);
+    line-height: 1.85;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .feature-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+
+  .feature-card:hover {
+    background: rgba(61,107,61,0.1);
+    border-color: rgba(90,143,90,0.3);
+    transform: translateY(-3px);
+  }
+
+  .feature-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .feature-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  .feature-desc {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card-main {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .about-big-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 96px;
+    color: var(--green-light);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .about-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--cream-dark);
+  }
+
+  .badge-dot {
+    width: 8px; height: 8px;
+    background: var(--green-light);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── KATALOG ── */
+  .katalog-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(245,243,238,0.6);
+    padding: 7px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--white);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .product-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(90,143,90,0.4);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .product-img {
+    height: 220px;
+    background: rgba(255,255,255,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(10,10,10,0.5));
+  }
+
+  .product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--green);
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  .product-badge.sold {
+    background: rgba(255,255,255,0.15);
+    color: var(--gray);
+  }
+
+  .product-body {
+    padding: 18px;
+  }
+
+  .product-brand {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 6px;
+  }
+
+  .product-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: 0.2px;
+  }
+
+  .product-kondisi {
+    font-size: 11px;
+    color: var(--gray);
+    margin-bottom: 14px;
+  }
+
+  .product-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--cream);
+  }
+
+  .product-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(61,107,61,0.3);
+    border: 1px solid rgba(90,143,90,0.4);
+    color: var(--green-light);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .product-wa:hover {
+    background: var(--green);
+    color: var(--white);
+  }
+
+  /* ── KOMUNITAS ── */
+  .komunitas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .artikel-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .artikel-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(90,143,90,0.3);
+  }
+
+  .artikel-img {
+    height: 160px;
+    background: rgba(61,107,61,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+
+  .artikel-body {
+    padding: 20px;
+  }
+
+  .artikel-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 8px;
+  }
+
+  .artikel-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .artikel-desc {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding: 60px 48px 40px;
+    background: rgba(0,0,0,0.3);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 3px;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+
+  .footer-desc {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 260px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .social-btn:hover {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .footer-col-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin-bottom: 20px;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--gray);
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--green-light);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 0 20px; }
+    .hero-stats { display: none; }
+    .section { padding: 60px 20px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .komunitas-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero-scroll { display: none; }
+  }
+
+  /* ── LOADING STATE ── */
+  .loading-skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0.04) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.04) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 6px;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  .skeleton-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <!-- PW Logo SVG recreated from brand -->
+    <img src="icons/padel.jpg" alt="Padel Werhos" height="70">
+    <span class="nav-brand">PADEL WERHOS</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#katalog">Katalog</a></li>
+    <li><a href="#komunitas">Komunitas</a></li>
+    <li><a href="#footer">Kontak</a></li>
+  </ul>
+
+  <div class="nav-cta">
+    <a href="https://wa.me/6281293876726?text=Halo, saya mau jual raket padel" class="btn-ghost">Jual Raket</a>
+    <a href="#katalog" class="btn-primary">Cari Raket</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">Second Hand Padel Gear</div>
+    <h1 class="hero-title">
+      RAKET
+      <span class="accent">PADEL</span>
+      PRELOVED
+    </h1>
+    <p class="hero-sub">
+      Jual beli raket padel bekas berkualitas. Kondisi terjamin, harga terbaik.
+      Trusted 100% — COD area Tangsel tersedia.
+    </p>
+    <div class="hero-actions">
+      <a href="#katalog" class="btn-hero">Lihat Katalog</a>
+      <a href="https://wa.me/6281293876726" class="btn-hero-outline">Hubungi Kami</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Raket Terjual</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Trusted</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Merek Tersedia</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
+
+<!-- ── MARQUEE ── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">BULLPADEL <span class="marquee-dot"></span></span>
+    <span class="marquee-item">NOX <span class="marquee-dot"></span></span>
+    <span class="marquee-item">BABOLAT <span class="marquee-dot"></span></span>
+    <span class="marquee-item">SIUX <span class="marquee-dot"></span></span>
+    <span class="marquee-item">ADIDAS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">OXDOG <span class="marquee-dot"></span></span>
+    <span class="marquee-item">BULLPADEL <span class="marquee-dot"></span></span>
+    <span class="marquee-item">NOX <span class="marquee-dot"></span></span>
+    <span class="marquee-item">BABOLAT <span class="marquee-dot"></span></span>
+    <span class="marquee-item">SIUX <span class="marquee-dot"></span></span>
+    <span class="marquee-item">ADIDAS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">OXDOG <span class="marquee-dot"></span></span>
+    <span class="marquee-item">BULLPADEL <span class="marquee-dot"></span></span>
+    <span class="marquee-item">NOX <span class="marquee-dot"></span></span>
+    <span class="marquee-item">BABOLAT <span class="marquee-dot"></span></span>
+    <span class="marquee-item">SIUX <span class="marquee-dot"></span></span>
+    <span class="marquee-item">ADIDAS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">OXDOG <span class="marquee-dot"></span></span>
+    <span class="marquee-item">BULLPADEL <span class="marquee-dot"></span></span>
+    <span class="marquee-item">NOX <span class="marquee-dot"></span></span>
+    <span class="marquee-item">BABOLAT <span class="marquee-dot"></span></span>
+    <span class="marquee-item">SIUX <span class="marquee-dot"></span></span>
+    <span class="marquee-item">ADIDAS <span class="marquee-dot"></span></span>
+    <span class="marquee-item">OXDOG <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">KENAPA PADEL WERHOS?</h2>
+      <p class="about-text">
+        Kami hadir sebagai solusi bagi para pecinta padel yang ingin upgrade raket tanpa harus beli baru. Semua raket yang kami jual sudah dicek kondisinya secara langsung sebelum dipasarkan.
+      </p>
+      <p class="about-text">
+        Dengan pengalaman di komunitas padel Tangsel, kami paham betul apa yang dicari para player — dari yang baru belajar sampai yang sudah kompetisi.
+      </p>
+      <div class="about-features">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="icons/verif.jpg" alt="Verified" width="50" height="36">
+          </div>
+          <div class="feature-title">Kondisi Verified</div>
+          <div class="feature-desc">Setiap raket dicek langsung sebelum dijual</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="icons/trusted.jpg" alt="Trusted" width="50" height="36">
+          </div>
+          <div class="feature-title">Trusted 100%</div>
+          <div class="feature-desc">Rekam jejak transaksi bisa dilihat di IG kami</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="icons/jabodetabek.jpg" alt="COD" width="50" height="36">
+          </div>
+          <div class="feature-title">COD Tangsel</div>
+          <div class="feature-desc">Bisa ketemu langsung, lihat raket sebelum bayar</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="icons/tradee.jpg" alt="COD" width="50" height="36">
+          </div>
+          <div class="feature-title">Beli & Trade</div>
+          <div class="feature-desc">Bisa tukar tambah dengan raket kamu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <div class="about-card-main">
+        <div class="about-big-num">PADEL WERHOS</div>
+        <div class="about-badges">
+          <div class="badge"><div class="badge-dot"></div>Second hand padel gear specialist</div>
+          <div class="badge"><div class="badge-dot"></div>Buy • Sell • Trade • Titip Jual</div>
+          <div class="badge"><div class="badge-dot"></div>COD via DM — area Tangsel</div>
+          <div class="badge"><div class="badge-dot"></div>Instagram: @padelwerhos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── KATALOG ── -->
+<section class="section" id="katalog" style="background: rgba(255,255,255,0.01); border-top: 1px solid rgba(255,255,255,0.05);">
+  <div class="katalog-header">
+    <div>
+      <div class="section-label">Katalog</div>
+      <h2 class="section-title">RAKET TERSEDIA</h2>
+    </div>
+    <a href="https://wa.me/628xxxxxxxxx?text=Halo, saya mau tanya stok raket" class="btn-ghost">Tanya Stok via WA →</a>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterProduk('semua', this)">Semua</button>
+    <button class="filter-btn" onclick="filterProduk('tersedia', this)">Tersedia</button>
+    <button class="filter-btn" onclick="filterProduk('bullpadel', this)">Bullpadel</button>
+    <button class="filter-btn" onclick="filterProduk('nox', this)">Nox</button>
+    <button class="filter-btn" onclick="filterProduk('babolat', this)">Babolat</button>
+    <button class="filter-btn" onclick="filterProduk('head', this)">Head</button>
+    <button class="filter-btn" onclick="filterProduk('siux', this)">Siux</button>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+    <!-- Data dari Airtable akan diload di sini -->
+  </div>
+</section>
+
+<!-- ── KOMUNITAS ── -->
+<section class="section" id="komunitas">
+  <div class="section-label">Komunitas</div>
+  <h2 class="section-title">TIPS & EDUKASI PADEL</h2>
+
+  <div class="komunitas-grid" style="margin-top: 40px;">
+    <a href="kondisi-raket.html" class="artikel-card" style="cursor:pointer; text-decoration:none; color:inherit;">
+      <div class="artikel-img">
+        <img src="icons/caramenjaga.jpg" alt="COD" width="460" height="155">
+      </div>
+      <div class="artikel-body">
+        <div class="artikel-tag">Panduan</div>
+        <div class="artikel-title">Cara Baca Kondisi Raket Prelove: A, B, dan C</div>
+        <div class="artikel-desc">Pahami perbedaan grade kondisi raket sebelum memutuskan beli, supaya tidak salah ekspektasi.</div>
+      </div>
+    </a>
+    <a href="pilih-raket.html" class="artikel-card" style="cursor:pointer; text-decoration:none; color:inherit;">
+      <div class="artikel-img">
+        <img src="icons/memilih.jpg" alt="COD" width="460" height="155">
+      </div>
+      <div class="artikel-body">
+        <div class="artikel-tag">Tips</div>
+        <div class="artikel-title">Pilih Raket Padel Sesuai Level Bermain</div>
+        <div class="artikel-desc">Dari pemula sampai advanced, setiap level punya kebutuhan raket yang berbeda. Ini panduannya.</div>
+      </div>
+    </a>
+    <a href="rawat-raket.html" class="artikel-card" style="cursor:pointer; text-decoration:none; color:inherit;">
+      <div class="artikel-img">
+        <img src="icons/abc.jpg" alt="COD" width="460" height="155">
+      </div>
+      <div class="artikel-body">
+        <div class="artikel-tag">Perawatan</div>
+        <div class="artikel-title">Cara Merawat Raket Padel Agar Awet</div>
+        <div class="artikel-desc">Tips sederhana menjaga kondisi raket supaya tetap prima dan harga jual kembali tetap bagus.</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer id="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">PADEL WERHOS</div>
+      <p class="footer-desc">Second hand padel gear specialist. Jual beli raket padel berkualitas dengan harga terbaik. Trusted 100%.</p>
+      <div class="social-links">
+        <a href="https://instagram.com/padelwerhos" class="social-btn" title="Instagram">📸</a>
+        <a href="https://wa.me/6281293876726" class="social-btn" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigasi</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#katalog">Katalog</a></li>
+        <li><a href="#komunitas">Komunitas</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Layanan</div>
+      <ul class="footer-links">
+        <li><a href="#">Jual Raket</a></li>
+        <li><a href="#">Beli Raket</a></li>
+        <li><a href="#">Tukar Tambah</a></li>
+        <li><a href="#">Titip Jual</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Kontak</div>
+      <ul class="footer-links">
+        <li><a href="https://instagram.com/padelwerhos">instagram : @padelwerhos</a></li>
+        <li><a href="https://wa.me/6281293876726">WhatsApp</a></li>
+        
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Padel Werhos. All rights reserved.</span>
+    <span>Made with ❤️ for padel community</span>
+  </div>
+</footer>
+
+<script>
+// ── GOOGLE SHEETS CONFIG ──
+const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRt0RCFdmm7E6DupPMi4DeOUG1rc0uhzhbnLCHA_fiCEEL4DU27g4s8Xuu5JqbPjY4uwQDguVdEdDOc/pub?gid=0&single=true&output=tsv';
+ 
+// ── FORMAT HARGA ──
+function formatHarga(num) {
+  if (!num) return '-';
+  return 'Rp' + num.toLocaleString('id-ID');
+}
+ 
+// ── RENDER SKELETON LOADING ──
+function renderSkeleton() {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = Array(4).fill('').map(() => `
+    <div class="skeleton-card">
+      <div class="loading-skeleton" style="height:220px"></div>
+      <div style="padding:18px; display:flex; flex-direction:column; gap:10px;">
+        <div class="loading-skeleton" style="height:12px; width:60%"></div>
+        <div class="loading-skeleton" style="height:16px; width:80%"></div>
+        <div class="loading-skeleton" style="height:12px; width:50%"></div>
+        <div class="loading-skeleton" style="height:22px; width:40%"></div>
+      </div>
+    </div>
+  `).join('');
+}
+ 
+// ── RENDER PRODUK ──
+let allProducts = [];
+ 
+function renderProduk(products) {
+  const grid = document.getElementById('productGrid');
+  if (products.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:60px; color:var(--gray)">
+      <div style="font-size:40px;margin-bottom:16px">🎾</div>
+      <div style="font-size:14px">Tidak ada produk ditemukan</div>
+    </div>`;
+    return;
+  }
+  grid.innerHTML = products.map(p => {
+    const f = p.fields;
+    const nama = f['Name'] || 'Raket Padel';
+    const merk = f['Merk'] || '';
+    const kondisi = f['Kondisi'] || '';
+    const hargaRaw = (f['Harga'] || '').replace(/[^0-9]/g, '');
+    const harga = hargaRaw ? parseInt(hargaRaw) : 0;
+    const deskripsi = f['Deskripsi'] || '';
+    const status = f['Status'] || 'Tersedia';
+    const foto = f['Foto'] && f['Foto'].startsWith('http') ? f['Foto'] : null;
+    const wa = '6281293876726';
+    const isTerjual = status === 'Terjual' || status === 'Sold';
+ 
+    const imgContent = foto
+      ? `<img src="${foto}" style="width:100%;height:100%;object-fit:cover;" alt="${nama}">`
+      : `<span style="font-size:60px">🎾</span>`;
+ 
+    return `
+      <div class="product-card" data-merk="${merk.toLowerCase()}" data-status="${status.toLowerCase()}">
+        <div class="product-img">
+          ${imgContent}
+          <div class="product-badge ${isTerjual ? 'sold' : ''}">${isTerjual ? 'Terjual' : 'Tersedia'}</div>
+        </div>
+        <div class="product-body">
+          <div class="product-brand">${merk}</div>
+          <div class="product-name">${nama}</div>
+          <div class="product-kondisi">Kondisi: ${kondisi} ${deskripsi ? '· ' + deskripsi.substring(0,50) + '...' : ''}</div>
+          <div class="product-footer">
+            <div class="product-price">${formatHarga(harga)}</div>
+            ${!isTerjual ? `<a class="product-wa" href="https://wa.me/${wa.replace(/\D/g,'')}?text=Halo, saya tertarik dengan raket ${encodeURIComponent(nama)}" target="_blank">💬 WA</a>` : ''}
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+ 
+// ── FILTER ──
+function filterProduk(filter, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+ 
+  let filtered = allProducts;
+  if (filter === 'tersedia') {
+    filtered = allProducts.filter(p => {
+      const s = (p.fields['Status'] || '').toLowerCase();
+      return s === 'tersedia' || s === 'available' || s === 'ava';
+    });
+  } else if (filter !== 'semua') {
+    filtered = allProducts.filter(p => {
+      const m = (p.fields['Merk'] || p.fields['Merek'] || '').toLowerCase();
+      return m.includes(filter);
+    });
+  }
+  renderProduk(filtered);
+}
+ 
+// ── FETCH GOOGLE SHEETS ──
+async function loadProduk() {
+  renderSkeleton();
+  try {
+    const res = await fetch(SHEET_URL);
+    if (!res.ok) throw new Error('Gagal fetch data');
+    const csv = await res.text();
+ 
+    // Parse CSV
+    const lines = csv.trim().split('\n');
+    const headers = lines[0].split('\t').map(h => h.trim());
+
+    allProducts = lines.slice(1).map(line => {
+      const cols = line.split('\t');
+      const fields = {};
+      headers.forEach((h, i) => { fields[h] = (cols[i] || '').trim(); });
+      return { fields };
+    }).filter(p => p.fields['Name'] && p.fields['Name'].length > 0);
+ 
+    renderProduk(allProducts);
+  } catch (err) {
+    document.getElementById('productGrid').innerHTML = `
+      <div style="grid-column:1/-1; text-align:center; padding:60px; color:var(--gray)">
+        <div style="font-size:40px;margin-bottom:16px">⚠️</div>
+        <div style="font-size:14px">Gagal memuat produk. Cek koneksi internet.</div>
+      </div>`;
+  }
+}
+ 
+loadProduk();
+ 
+// ── SMOOTH SCROLL NAVBAR ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>

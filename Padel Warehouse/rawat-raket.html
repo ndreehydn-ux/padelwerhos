@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cara Merawat Raket Padel — Padel Werhos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a; --green-dark: #2d4a2d; --green: #3d6b3d;
+    --green-light: #5a8f5a; --cream: #e8e4d4; --cream-dark: #c8c4b4;
+    --white: #f5f3ee; --gray: #888;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 48px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(10,10,10,0.9); backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo { text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--cream); }
+  .nav-back { text-decoration: none; color: rgba(255,255,255,0.5); font-size: 13px; transition: color 0.2s; }
+  .nav-back:hover { color: var(--green-light); }
+
+  .hero-article { padding: 120px 48px 60px; max-width: 800px; margin: 0 auto; }
+  .article-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(61,107,61,0.25); border: 1px solid rgba(90,143,90,0.4);
+    color: var(--green-light); font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 2px; margin-bottom: 24px;
+  }
+  .article-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); line-height: 1; letter-spacing: 1px; color: var(--white); margin-bottom: 20px; }
+  .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 48px; }
+
+  .article-body { max-width: 800px; margin: 0 auto; padding: 0 48px 80px; }
+  .article-body p { font-size: 16px; color: rgba(245,243,238,0.7); line-height: 1.85; font-weight: 300; margin-bottom: 24px; }
+  h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1px; color: var(--white); margin: 40px 0 16px; }
+
+  .steps { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+  .step {
+    display: grid; grid-template-columns: 56px 1fr;
+    gap: 20px; padding: 24px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 40px;
+    color: var(--green-light); opacity: 0.4; line-height: 1;
+    padding-top: 4px;
+  }
+  .step-content h3 { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .step-content p { font-size: 14px; color: rgba(245,243,238,0.6); line-height: 1.7; margin: 0; }
+
+  .dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+  .do-card { background: rgba(61,107,61,0.1); border: 1px solid rgba(90,143,90,0.3); border-radius: 10px; padding: 20px; }
+  .dont-card { background: rgba(180,60,60,0.08); border: 1px solid rgba(180,60,60,0.25); border-radius: 10px; padding: 20px; }
+  .card-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+  .do-card .card-label { color: var(--green-light); }
+  .dont-card .card-label { color: #e06060; }
+  .card-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .card-list li { font-size: 13px; color: rgba(245,243,238,0.65); line-height: 1.5; display: flex; gap: 8px; }
+  .card-list li::before { flex-shrink: 0; margin-top: 1px; }
+  .do-card .card-list li::before { content: '✓'; color: var(--green-light); font-weight: 700; }
+  .dont-card .card-list li::before { content: '✗'; color: #e06060; font-weight: 700; }
+
+  .tip-box { background: rgba(61,107,61,0.12); border: 1px solid rgba(90,143,90,0.3); border-left: 3px solid var(--green-light); border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+  .tip-box-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--green-light); margin-bottom: 8px; text-transform: uppercase; }
+  .tip-box p { font-size: 14px; color: rgba(245,243,238,0.7); line-height: 1.7; margin: 0; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: var(--white); padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; margin-top: 20px; transition: all 0.2s; }
+  .back-btn:hover { background: var(--green-light); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .hero-article { padding: 100px 20px 40px; }
+    .article-body { padding: 0 20px 60px; }
+    .dont-grid { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 40px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">PADEL WERHOS</a>
+  <a href="index.html#komunitas" class="nav-back">← Kembali</a>
+</nav>
+
+<div class="hero-article">
+  <div class="article-tag">🔧 Perawatan</div>
+  <h1 class="article-title">CARA MERAWAT RAKET PADEL AGAR AWET</h1>
+  <div class="article-meta">Padel Werhos · Panduan Perawatan</div>
+</div>
+
+<div class="article-body">
+  <p>Raket padel yang dirawat dengan baik bisa bertahan 2–4 tahun bahkan lebih. Sebaliknya, raket yang dibiarkan begitu saja bisa cepat rusak dan nilainya turun drastis saat dijual kembali. Ini panduan perawatan simpel yang bisa kamu lakukan.</p>
+
+  <h2>RUTINITAS SETELAH BERMAIN</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Lap Raket Setelah Selesai Main</h3>
+        <p>Gunakan kain mikrofiber kering untuk mengelap seluruh permukaan raket — terutama bagian face dan frame. Keringat dan debu yang dibiarkan menempel bisa merusak lapisan permukaan raket dari waktu ke waktu.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>Simpan di Tas Raket atau Softcase</h3>
+        <p>Jangan biarkan raket tergeletak tanpa pelindung. Softcase atau tas raket melindungi dari benturan dan goresan yang tidak disengaja. Kalau tidak punya, bungkus dengan kain bersih.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Hindari Suhu Ekstrem</h3>
+        <p>Jangan tinggalkan raket di dalam mobil yang diparkir di terik matahari. Suhu tinggi bisa merusak material EVA foam di dalam raket dan melunakkan lem yang merekatkan komponen raket.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Ganti Grip Secara Rutin</h3>
+        <p>Grip yang sudah licin atau kotor bukan hanya tidak nyaman, tapi juga bisa membuat pegangan tidak stabil dan meningkatkan risiko raket lepas. Ganti overgrip setiap 10–15 sesi atau saat sudah terasa licin.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <h3>Pasang Protector di Ujung Frame</h3>
+        <p>Bagian ujung atas frame (kepala raket) adalah yang paling rawan terkena lapangan saat melakukan smash atau pukul bawah. Pasang frame protector untuk mencegah goresan di bagian ini.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>BOLEH & TIDAK BOLEH</h2>
+  <div class="dont-grid">
+    <div class="do-card">
+      <div class="card-label">✓ Boleh dilakukan</div>
+      <ul class="card-list">
+        <li>Lap dengan kain mikrofiber kering</li>
+        <li>Simpan di tempat sejuk dan kering</li>
+        <li>Pakai softcase atau tas raket</li>
+        <li>Pasang frame protector</li>
+        <li>Ganti grip secara berkala</li>
+        <li>Cek kondisi raket secara rutin</li>
+      </ul>
+    </div>
+    <div class="dont-card">
+      <div class="card-label">✗ Hindari ini</div>
+      <ul class="card-list">
+        <li>Tinggal di mobil yang panas</li>
+        <li>Disimpan di tempat lembab</li>
+        <li>Dibanting ke tanah atau dinding</li>
+        <li>Dicuci dengan air berlebihan</li>
+        <li>Ditumpuk dengan benda berat</li>
+        <li>Dipakai untuk pukul bola tenis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-box-label">💡 Tips Jaga Nilai Jual Kembali</div>
+    <p>Raket yang dirawat dengan baik bisa dijual kembali dengan harga 60–75% dari harga beli. Sebaliknya raket yang tidak dirawat nilainya bisa turun hingga 40–50%. Kalau kamu mau titip jual raket kamu di Padel Werhos, kondisi raket sangat menentukan harga jualnya.</p>
+  </div>
+
+  <a href="index.html#katalog" class="back-btn">🎾 Lihat Katalog Raket →</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih Raket Padel Sesuai Level — Padel Werhos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a; --green-dark: #2d4a2d; --green: #3d6b3d;
+    --green-light: #5a8f5a; --cream: #e8e4d4; --cream-dark: #c8c4b4;
+    --white: #f5f3ee; --gray: #888;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--black); color: var(--white); font-family: 'DM Sans', sans-serif; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 48px; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: rgba(10,10,10,0.9); backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-logo { text-decoration: none; font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--cream); }
+  .nav-back { display: flex; align-items: center; gap: 8px; text-decoration: none; color: rgba(255,255,255,0.5); font-size: 13px; transition: color 0.2s; }
+  .nav-back:hover { color: var(--green-light); }
+
+  .hero-article { padding: 120px 48px 60px; max-width: 800px; margin: 0 auto; }
+  .article-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(61,107,61,0.25); border: 1px solid rgba(90,143,90,0.4);
+    color: var(--green-light); font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 2px; margin-bottom: 24px;
+  }
+  .article-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); line-height: 1; letter-spacing: 1px; color: var(--white); margin-bottom: 20px; }
+  .article-meta { font-size: 13px; color: var(--gray); margin-bottom: 48px; }
+
+  .article-body { max-width: 800px; margin: 0 auto; padding: 0 48px 80px; }
+  .article-body p { font-size: 16px; color: rgba(245,243,238,0.7); line-height: 1.85; font-weight: 300; margin-bottom: 24px; }
+  h2 { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 1px; color: var(--white); margin: 40px 0 16px; }
+
+  .level-cards { display: flex; flex-direction: column; gap: 24px; margin: 40px 0; }
+  .level-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 28px 32px;
+    display: grid; grid-template-columns: auto 1fr; gap: 24px;
+    transition: all 0.3s;
+  }
+  .level-card:hover { border-color: rgba(90,143,90,0.3); background: rgba(61,107,61,0.08); }
+  .level-icon { font-size: 40px; }
+  .level-badge {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 3px; margin-bottom: 8px;
+  }
+  .level-badge.pemula { background: rgba(61,107,61,0.3); color: var(--green-light); }
+  .level-badge.menengah { background: rgba(200,160,50,0.2); color: #c8a032; }
+  .level-badge.advanced { background: rgba(180,60,60,0.2); color: #e06060; }
+  .level-card h3 { font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+  .level-card p { font-size: 14px; color: rgba(245,243,238,0.6); line-height: 1.7; margin: 0 0 14px; }
+  .level-rec { background: rgba(255,255,255,0.04); border-radius: 6px; padding: 12px 16px; }
+  .level-rec-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 6px; }
+  .level-rec-val { font-size: 13px; color: var(--cream-dark); }
+
+  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0; }
+  .spec-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 20px; }
+  .spec-title { font-size: 13px; font-weight: 700; color: var(--cream); margin-bottom: 8px; }
+  .spec-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  .tip-box { background: rgba(61,107,61,0.12); border: 1px solid rgba(90,143,90,0.3); border-left: 3px solid var(--green-light); border-radius: 8px; padding: 20px 24px; margin: 32px 0; }
+  .tip-box-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: var(--green-light); margin-bottom: 8px; text-transform: uppercase; }
+  .tip-box p { font-size: 14px; color: rgba(245,243,238,0.7); line-height: 1.7; margin: 0; }
+
+  .back-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: var(--white); padding: 12px 24px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; margin-top: 20px; transition: all 0.2s; }
+  .back-btn:hover { background: var(--green-light); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .hero-article { padding: 100px 20px 40px; }
+    .article-body { padding: 0 20px 60px; }
+    .level-card { grid-template-columns: 1fr; }
+    .spec-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">PADEL WERHOS</a>
+  <a href="index.html#komunitas" class="nav-back">← Kembali</a>
+</nav>
+
+<div class="hero-article">
+  <div class="article-tag">🏸 Tips</div>
+  <h1 class="article-title">PILIH RAKET PADEL SESUAI LEVEL BERMAIN</h1>
+  <div class="article-meta">Padel Werhos · Tips & Rekomendasi</div>
+</div>
+
+<div class="article-body">
+  <p>Banyak pemain padel — terutama yang baru mulai — salah pilih raket karena tergiur tampilan atau harga murah tanpa mempertimbangkan level bermain. Padahal raket yang tidak sesuai justru bisa menghambat perkembangan teknik dan meningkatkan risiko cedera.</p>
+
+  <h2>KENALI DULU LEVEL KAMU</h2>
+
+  <div class="level-cards">
+    <div class="level-card">
+      <div class="level-icon">🌱</div>
+      <div>
+        <div class="level-badge pemula">Pemula</div>
+        <h3>0–6 Bulan Bermain</h3>
+        <p>Masih belajar teknik dasar — forehand, backhand, servis, dan pergerakan kaki. Di tahap ini yang paling penting adalah raket yang mudah dikontrol, bukan raket yang powerful.</p>
+        <div class="level-rec">
+          <div class="level-rec-label">Rekomendasi raket</div>
+          <div class="level-rec-val">Round shape · Berat 350–360g · Balance rendah (heavy handle) · Foam EVA lunak</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="level-card">
+      <div class="level-icon">⚡</div>
+      <div>
+        <div class="level-badge menengah">Menengah</div>
+        <h3>6 Bulan – 2 Tahun Bermain</h3>
+        <p>Teknik dasar sudah dikuasai, mulai mengembangkan smash dan spin. Bisa mulai pakai raket yang lebih bertenaga tapi masih perlu kontrol yang baik.</p>
+        <div class="level-rec">
+          <div class="level-rec-label">Rekomendasi raket</div>
+          <div class="level-rec-val">Teardrop/Diamond shape · Berat 360–370g · Balance medium · Foam EVA medium</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="level-card">
+      <div class="level-icon">🏆</div>
+      <div>
+        <div class="level-badge advanced">Advanced</div>
+        <h3>2+ Tahun / Kompetisi</h3>
+        <p>Teknik sudah matang, bermain kompetitif. Bisa mengoptimalkan raket power tinggi karena kontrol sudah dari teknik, bukan dari raket.</p>
+        <div class="level-rec">
+          <div class="level-rec-label">Rekomendasi raket</div>
+          <div class="level-rec-val">Diamond shape · Berat 365–375g · High balance · Foam MULTIGRAPH/Carbon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>PAHAMI SPEC RAKET</h2>
+  <div class="spec-grid">
+    <div class="spec-card">
+      <div class="spec-title">🔵 Shape (Bentuk)</div>
+      <div class="spec-desc"><strong>Round</strong> = sweet spot besar, mudah dikontrol. <strong>Teardrop</strong> = tengah. <strong>Diamond</strong> = sweet spot kecil, power max.</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-title">⚖️ Balance</div>
+      <div class="spec-desc"><strong>Low balance</strong> = nyaman di tangan, lebih mudah dikontrol. <strong>High balance</strong> = lebih bertenaga tapi butuh teknik.</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-title">🏋️ Berat</div>
+      <div class="spec-desc">Raket padel standar 340–390g. Lebih ringan = lebih mudah diayun. Lebih berat = lebih bertenaga tapi cepat lelah.</div>
+    </div>
+    <div class="spec-card">
+      <div class="spec-title">🟡 Core (Foam)</div>
+      <div class="spec-desc"><strong>EVA lunak</strong> = control tinggi. <strong>EVA keras</strong> = power tinggi. <strong>Foam khusus</strong> = biasanya di raket premium.</div>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-box-label">💡 Tips dari Padel Werhos</div>
+    <p>Kalau masih ragu, ceritakan level bermain dan budget kamu ke kami via WA. Kami dengan senang hati bantu rekomendasikan raket prelove yang paling cocok untuk kamu — tanpa paksaan beli.</p>
+  </div>
+
+  <a href="index.html#katalog" class="back-btn">🎾 Lihat Katalog Raket →</a>
+</div>
+
+</body>
+</html>
